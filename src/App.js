@@ -15,11 +15,17 @@ function App() {
   const [currentSection, setCurrentSection] = useState('no section selected')
   const { token, setToken } = useToken();
   const [sections, setSections] = useState([])
+  const [isSorted, setIsSorted] = useState(false);
 
   useEffect(() => {
     sectionStore.getSections()
     sectionStore.emitter.addListener('GET_SECTIONS_SUCCESS', () => {
         sectionStore.data = sectionStore.data.map(({owner, createdAt, updatedAt, ...rest}) => {return rest;})
+        // console.log(isSorted ? true : false)
+        if(isSorted){
+          sectionStore.data.sort((x, y) => (x.title > y.title) ? 1 : -1);
+          setIsSorted(false);
+        }
         setSections(sectionStore.data)
     })
   }, [])
@@ -31,6 +37,25 @@ function App() {
   const sectionChange = (section)=>{
     setCurrentSection(section)
     sessionStorage.setItem('currentSection', section)
+  }
+
+  const sortSection = (items, isAscending) => {
+    items.sort(function(a, b){
+      a = a.title.toLowerCase()
+      b = b.title.toLowerCase()
+      if(isAscending){
+        return (a > b) ? 1 : -1;
+      } else {
+        return (a > b) ? -1 : 1;
+      }
+    })
+    //console.log(items);
+    if(isSorted){
+      setIsSorted(false);
+    }
+    else{
+      setIsSorted(true);
+    }
   }
 
   const items = [
@@ -93,7 +118,7 @@ function App() {
     //   </BrowserRouter>
     // </div>
     <div>
-      <Sidebar items={sections} onAdd={addSection} onSectionClick={sectionChange}/>
+      <Sidebar items={sections} onAdd={addSection} onSectionClick={sectionChange} onSort={sortSection}/>
       <MainPanel currentSection={currentSection} />
     </div>
   );
