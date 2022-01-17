@@ -24,8 +24,8 @@ class SectionStore{
 
     async addSection(section) {
         try {
-            section.title = section.newtitle
-            delete section.newtitle
+            // section.title = section.newtitle
+            // delete section.newtitle
             const response = await fetch(`${SERVER}/sections`, {
                 method: 'POST',
                 headers: {
