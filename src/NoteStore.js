@@ -16,6 +16,7 @@ class NoteStore{
                 throw response
             }
             this.data = await response.json()
+            // this.data.map(e => JSON.parse(e))
             this.emitter.emit('GET_NOTES_SUCCESS')
         } catch (err) {
             console.warn(err)
@@ -32,8 +33,10 @@ class NoteStore{
             // this.data = await response.json()
             // this.emitter.emit('GET_NOTES_SUCCESS')
             this.getNotes();
-            this.specificNote = this.data.find(element => element.name = name);
-            return this.specificNote;
+            
+            this.specificNote = this.data.find(element => element.title = name);
+            console.log(name + " " + this.specificNote)
+            // return this.specificNote;
         } catch (err) {
             console.warn(err)
             this.emitter.emit('GET_NOTES_ERROR')

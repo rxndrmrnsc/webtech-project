@@ -7,6 +7,7 @@ import '../../../node_modules/draft-js/dist/Draft.css'
 class RTEditor extends React.Component {
     constructor(props) {
       super(props);
+      console.log(props)
       this.state = {editorState: EditorState.createEmpty()};
 
       this.focus = () => this.refs.editor.focus();
@@ -14,13 +15,17 @@ class RTEditor extends React.Component {
         const raw = convertToRaw(editorState.getCurrentContent());
         this.saveEditorContent(raw);
         this.setState({editorState});
-        noteStore.saveNote(1, raw);
+        // const rawStr = JSON.stringify(raw);
+        // noteStore.saveNote(this.props.section, {
+        //   content: rawStr
+        // });
       } 
 
       this.handleKeyCommand = this._handleKeyCommand.bind(this);
       this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
       this.toggleBlockType = this._toggleBlockType.bind(this);
       this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
+      this.saveToDb = this._saveToDb.bind(this)
     }
 
     saveEditorContent(data) {
@@ -28,14 +33,21 @@ class RTEditor extends React.Component {
     }
   
     getSavedEditorData() {
-      const savedData = localStorage.getItem("editorData");
+      // noteStore.getNote(sessionStorage.getItem('currentSection'));
+      noteStore.getNote(this.props.section);
+      // const savedData = localStorage.getItem("editorData");
+      const savedData = noteStore.specificNote;
+
+      console.log(savedData)
   
-      return savedData ? JSON.parse(savedData) : null;
+      return savedData ? JSON.parse(savedData.content) : null;
     }
 
     componentDidMount() {
       // Load editor data (raw js object) from local storage
+      console.log(noteStore.data)
       const rawEditorData = this.getSavedEditorData();
+      console.log(rawEditorData)
       if (rawEditorData !== null) {
         const contentState = convertFromRaw(rawEditorData);
         this.setState({
@@ -93,8 +105,19 @@ class RTEditor extends React.Component {
       return JSON.stringify(raw, null, 2);
     }
 
+    _saveToDb(){
+      const contentState = localStorage.getItem("editorData")
+      // const raw = convertToRaw(contentState);
+      // const rawStr = JSON.stringify(raw);
+      noteStore.saveNote(this.props.section, {
+        content: contentState
+      });
+      console.log("save")
+    }
+
     render() {
       const {editorState} = this.state;
+      // this.getSavedEditorData();
 
       // If the user changes block type before entering any text, we can
       // either style the placeholder or hide it. Let's just hide it now.
@@ -105,6 +128,7 @@ class RTEditor extends React.Component {
           className += ' RichEditor-hidePlaceholder';
         }
       }
+      
 
       return (
         <div className="RichEditor-root">
@@ -129,7 +153,7 @@ class RTEditor extends React.Component {
               spellCheck={true}
             />
           </div>
-          {/* <button onClick={add}>+</button> */}
+          <button onClick={this.saveToDb}>+</button>
           <h4>Editor content as raw JS</h4>
           <pre>{this.renderContentAsRawJs()}</pre>
         </div>
