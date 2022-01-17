@@ -68,7 +68,8 @@ const User = sequelize.define('user', {
 
 const Note = sequelize.define('note', {
   title: Sequelize.STRING,
-  owner: Sequelize.STRING
+  owner: Sequelize.STRING,
+  content: Sequelize.STRING
 })
 
 const Section = sequelize.define('section', {
@@ -76,7 +77,7 @@ const Section = sequelize.define('section', {
   owner: Sequelize.STRING
 })
 
-Section.hasMany(Note)
+// User.hasMany(Note)
 
 app.use(cors());
 app.use(bodyParser.json())
@@ -149,6 +150,47 @@ app.post('/sections', async(req, res)=>{
       // console.log(section)
       await Section.create(section)
       res.status(201).json({message: 'created'})
+  } catch(err){
+      console.warn(err)
+      res.status(500).json({message: 'some error occured'})
+  }
+})
+
+
+app.get('/notes', async(req, res)=>{
+  try{
+      const note = await Note.findAll()
+      res.status(201).json(note)
+  } catch(err){
+      console.warn(err)
+      res.status(500).json({message: 'some error occured'})
+  }
+})
+app.post('/notes', async(req, res)=>{
+  try{
+      // console.log(req)
+      const note = req.body
+      console.log(note)
+      await Note.create(note)
+      res.status(201).json({message: 'created'})
+  } catch(err){
+      console.warn(err)
+      res.status(500).json({message: 'some error occured'})
+  }
+})
+
+app.put('/notes/:nid', async(req, res)=>{
+  try{
+      const note = await Note.findByPk(req.params.nid)
+      if(note){
+          await note.update(req.body, {
+              fields: ['content']
+          })
+          res.status(202).json(note)
+      } else{
+          res.status(404).json({message: 'not found'})
+      }
+      
   } catch(err){
       console.warn(err)
       res.status(500).json({message: 'some error occured'})
