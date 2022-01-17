@@ -4,4 +4,11 @@
 
 .sidebar{
     background-color: #3a9979;
+    height: 100vh;
+    box-shadow: 3px 2px #05386B;
+    overflow: scroll;
+}
+
+.sidebar::-webkit-scrollbar{
+    display: none;
 }
