@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #44b38e;
+ 
 }
 
 code {
@@ -13,7 +15,28 @@ code {
 }
 
 .sidebar {
-  max-width: 240px;
+  max-width: 250px;
   float:left;
-  border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+h1{
+  color: #EDF5E1;
+}
+
+
+.btn{
+  background-color: #F64C72;
+}
+
+.btn:hover{
+  background-color: #fa7c97;
+}
+
+.dropdown-item:hover{
+  background-color: #fa7c97;
+}
+
+*:focus {
+  outline: none;
+}
+

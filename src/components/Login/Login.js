@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Login.css';
 import UserProfile from '../../UserProfile';
-
+import TextField from '@mui/material/TextField'
+import Button from '@mui/material/Button'
 
 async function loginUser(credentials) {
   const response = await fetch('http://localhost:8080/login', {
@@ -46,18 +47,34 @@ export default function Login({ setToken }) {
 
   return(
     <div className="login-wrapper">
-      <h1>Please Log In</h1>
+      <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)} />
-        </label>
-        <label>
-          <p>Password</p>
-          <input type="password" onChange={e => setPassword(e.target.value)} />
-        </label>
+        
+          <TextField id="outlined-basic"
+          className="textField"
+          label="Username" 
+          variant="outlined"
+          sx={{margin:'5px', borderRadius:'5px', backgroundColor:'#EDF5E1'}} 
+          onChange={e => setUserName(e.target.value)}
+          />
+        
+          <TextField id="outlined-password-input"
+          className="textField" 
+          label="Password"
+          variant="outlined"
+          type="password"
+          autoComplete="current-password"
+          sx={{margin:'5px', borderRadius:'5px', backgroundColor:'#EDF5E1'}}
+          onChange={e => setPassword(e.target.value)} 
+          />
+        
         <div>
-          <button type="submit">Submit</button>
+          <Button
+          variant="contained"
+          className="submitBtn" 
+          type="submit"
+          style={{color:'#EDF5E1', fontFamily: "'Poppins', sans-serif", backgroundColor:'#05386B'}}
+          sx={{margin:'5px'}}>Submit</Button>
         </div>
       </form>
       {/* <div>
