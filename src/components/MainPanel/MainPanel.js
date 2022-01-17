@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react"
 import './MainPanel.css';
+import RTEditor from '../RTEditor/RTEditor';
+import MyEditor from '../RTEditor/MyEditor';
+import ThirdEditor from '../RTEditor/ThirdEditor';
+import FTEditor from '../RTEditor/FTEditor';
 import { Dialog } from "@mui/material";
 import { Button } from "@material-ui/core";
 
@@ -13,6 +17,10 @@ function MainPanel(props){
     return(
         <div className="panel-wrapper">
             <h1>{section}</h1>
+            <RTEditor />
+            {/* <MyEditor /> */}
+            {/* <ThirdEditor /> */}
+            {/* <FTEditor /> */}
         <div className="dropleft" style={{position:'absolute', 
                   top:'0', 
                   right:'0'}}>
