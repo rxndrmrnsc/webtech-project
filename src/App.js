@@ -9,7 +9,8 @@ import useToken from './useToken';
 import Register from './components/Register/Register';
 import Sidebar from './components/Sidebar/Sidebar';
 import MainPanel from './components/MainPanel/MainPanel';
-import sectionStore from './SectionStore';
+import sectionStore from './SectionStore'
+import noteStore from './NoteStore'
 
 function App() {
   const [currentSection, setCurrentSection] = useState('no section selected')
@@ -31,7 +32,8 @@ function App() {
   }, [])
 
   const addSection = (section) => {
-    sectionStore.addSection(section)
+    noteStore.addNote(section);
+    sectionStore.addSection(section);
   }
 
   const sectionChange = (section)=>{
