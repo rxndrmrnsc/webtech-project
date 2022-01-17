@@ -14,7 +14,7 @@ function SidebarItem({ title, items, depthStep = 10, depth = 0, ...rest }) {
     <>
       <ListItem button dense {...rest} >
         <ListItemText style={{ paddingLeft: depth * depthStep }}>
-          <span>{title}</span>
+          <span id="itemTitle">{title}</span>
         </ListItemText>
       </ListItem>
       {Array.isArray(items) ? (

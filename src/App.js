@@ -3,19 +3,22 @@ import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Dashboard from './components/Dashboard/Dashboard';
 import Preferences from './components/Preferences/Preferences';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Login from './components/Login/Login';
 import useToken from './useToken';
 import Register from './components/Register/Register';
 import Sidebar from './components/Sidebar/Sidebar';
 import MainPanel from './components/MainPanel/MainPanel';
 import sectionStore from './SectionStore'
+import Menu from './components/Menu/Menu';
 
 function App() {
   const [currentSection, setCurrentSection] = useState('no section selected')
   const { token, setToken } = useToken();
   const [sections, setSections] = useState([])
   const [isSorted, setIsSorted] = useState(false);
+  const [anchorPoint, setAnchorPoint] = useState({x: 0, y: 0})
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     sectionStore.getSections()
@@ -120,6 +123,7 @@ function App() {
     <div>
       <Sidebar items={sections} onAdd={addSection} onSectionClick={sectionChange} onSort={sortSection}/>
       <MainPanel currentSection={currentSection} />
+      <Menu />
     </div>
   );
 }
