@@ -107,6 +107,7 @@ function Sidebar(props) {
         {items.map((sidebarItem, index) => (
           <SidebarItem
             // onClick={() => setCurrentSection(sidebarItem.title)}
+            
             onClick={() => onSectionClick(sidebarItem.title)}
             key={`${sidebarItem.title}${index}`}
             depthStep={depthStep}

@@ -12,7 +12,6 @@ import MainPanel from './components/MainPanel/MainPanel';
 import sectionStore from './SectionStore'
 import Menu from './components/Menu/Menu';
 
-
 function App() {
   const [currentSection, setCurrentSection] = useState('no section selected')
   const { token, setToken } = useToken();
