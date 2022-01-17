@@ -1,9 +1,13 @@
 .RichEditor-root {
-    background: #fff;
+    background: white;
     border: 1px solid #ddd;
     font-family: 'Georgia', serif;
     font-size: 14px;
     padding: 15px;
+    border-radius: 5px;
+    width: 150vh;
+    margin: 30px;
+    
   }
   
   .RichEditor-editor {
@@ -11,6 +15,7 @@
     cursor: text;
     font-size: 16px;
     margin-top: 10px;
+    overflow: scroll;
   }
   
   .RichEditor-editor .public-DraftEditorPlaceholder-root,
@@ -51,7 +56,7 @@
   }
   
   .RichEditor-styleButton {
-    color: #999;
+    color: #F64C72;
     cursor: pointer;
     margin-right: 16px;
     padding: 2px 0;
