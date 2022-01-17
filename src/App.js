@@ -9,7 +9,7 @@ import useToken from './useToken';
 import Register from './components/Register/Register';
 import Sidebar from './components/Sidebar/Sidebar';
 import MainPanel from './components/MainPanel/MainPanel';
-import sectionStore from './SectionStore'
+import sectionStore from './SectionStore';
 
 function App() {
   const [currentSection, setCurrentSection] = useState('no section selected')
