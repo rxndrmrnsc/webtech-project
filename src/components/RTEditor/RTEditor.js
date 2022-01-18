@@ -7,7 +7,6 @@ import '../../../node_modules/draft-js/dist/Draft.css'
 class RTEditor extends React.Component {
     constructor(props) {
       super(props);
-      console.log(props)
       this.state = {editorState: EditorState.createEmpty()};
 
       this.focus = () => this.refs.editor.focus();
@@ -35,9 +34,10 @@ class RTEditor extends React.Component {
     getSavedEditorData() {
       // noteStore.getNote(sessionStorage.getItem('currentSection'));
       noteStore.getNote(this.props.section);
+      console.log(noteStore.data)
       // const savedData = localStorage.getItem("editorData");
       const savedData = noteStore.specificNote;
-
+      console.log("saved data for " + this.props.section + ": " )
       console.log(savedData)
   
       return savedData ? JSON.parse(savedData.content) : null;
@@ -45,14 +45,18 @@ class RTEditor extends React.Component {
 
     componentDidMount() {
       // Load editor data (raw js object) from local storage
-      console.log(noteStore.data)
       const rawEditorData = this.getSavedEditorData();
+      console.log("ComponentDidMount: ")
       console.log(rawEditorData)
       if (rawEditorData !== null) {
         const contentState = convertFromRaw(rawEditorData);
         this.setState({
           editorState: EditorState.createWithContent(contentState),
         });
+      } else{
+        this.setState({
+          editorState: EditorState.createEmpty(),
+        })
       }
     }
 
@@ -112,7 +116,7 @@ class RTEditor extends React.Component {
       noteStore.saveNote(this.props.section, {
         content: contentState
       });
-      console.log("save")
+      console.log("saved :" + contentState + " to: " + this.props.section)
     }
 
     render() {

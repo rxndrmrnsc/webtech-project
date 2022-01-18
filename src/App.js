@@ -35,7 +35,6 @@ function App() {
   const addSection = (section) => {
     noteStore.addNote(section);
     noteStore.getNotes();
-    console.log(noteStore.data);
     sectionStore.addSection(section);
   }
 
