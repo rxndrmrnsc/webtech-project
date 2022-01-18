@@ -16,12 +16,14 @@ function MainPanel(props){
 
     return(
         <div className="panel-wrapper">
+            <div className="sectionTitle">
             <h1>{section}</h1>
+            </div>
             <RTEditor key = {currentSection} section = {currentSection}/>
             {/* <MyEditor /> */}
             {/* <ThirdEditor /> */}
             {/* <FTEditor /> */}
-        <div className="dropleft" style={{position:'absolute', 
+      {/* <div className="dropleft" style={{position:'absolute', 
                   top:'0', 
                   right:'0'}}>
         <Button
@@ -43,8 +45,8 @@ function MainPanel(props){
           <button className="dropdown-item" type="button">Delete note</button>
           <button className="dropdown-item" type="button">Send via E-mail</button>
         </div>
+      </div> */}
       </div>
-        </div>
     )
 }
 

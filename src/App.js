@@ -100,7 +100,10 @@ function App() {
 
   if(!token) {
     return (
-    <div>
+    <div id='loginreg-container'>
+      <div id='appTitle'>
+        <h1>Student Notes</h1>
+      </div>
       <Login setToken={setToken} />
       <Register setToken={setToken} />
     </div>
@@ -121,7 +124,7 @@ function App() {
     //     </Switch>
     //   </BrowserRouter>
     // </div>
-    <div>
+    <div className='sidebar-mainpanel-wrapper'>
       <Sidebar items={sections} onAdd={addSection} onSectionClick={sectionChange} onSort={sortSection}/>
       <MainPanel currentSection={currentSection} />
       <Menu />

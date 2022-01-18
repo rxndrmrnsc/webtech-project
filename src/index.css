@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #44b38e;
- 
+  background-color: #0a293fce; 
+  height: 100vh;
 }
 
 code {
@@ -14,29 +14,50 @@ code {
     monospace;
 }
 
-.sidebar {
-  max-width: 250px;
-  float:left;
+#root{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: #0a293fce; 
 }
 
-h1{
-  color: #EDF5E1;
+/* log-in/register wrapper */
+#loginreg-container{
+  display: flex;
+  flex-direction: column;
+  height:100%;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  overflow:hidden;
 }
 
-
-.btn{
-  background-color: #F64C72;
+#loginreg-container > h1{
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 2px 2px #1ba098;
 }
 
-.btn:hover{
-  background-color: #fa7c97;
+#appTitle{
+  margin: 20px;
 }
 
-.dropdown-item:hover{
-  background-color: #fa7c97;
+#appTitle > h1{
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 2px 2px #1ba098;
+  font-size: 100px;
 }
 
-*:focus {
-  outline: none;
+.sidebar-mainpanel-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width:100%;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow:hidden;
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; 
+}

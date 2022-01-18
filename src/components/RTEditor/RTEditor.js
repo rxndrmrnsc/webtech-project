@@ -2,7 +2,8 @@ import React from 'react';
 import './RTEditor.css'
 import noteStore from '../../NoteStore'
 import {Editor, EditorState, getDefaultKeyBinding, RichUtils, convertToRaw, convertFromRaw,} from 'draft-js'
-import '../../../node_modules/draft-js/dist/Draft.css'
+import '../../../node_modules/draft-js/dist/Draft.css';
+import Button from '@mui/material/Button'
 
 class RTEditor extends React.Component {
     constructor(props) {
@@ -152,14 +153,15 @@ class RTEditor extends React.Component {
               handleKeyCommand={this.handleKeyCommand}
               keyBindingFn={this.mapKeyToEditorCommand}
               onChange={this.onChange}
-              placeholder="Tell a story..."
+              placeholder="Take a note..."
               ref="editor"
               spellCheck={true}
             />
           </div>
-          <button onClick={this.saveToDb}>+</button>
-          <h4>Editor content as raw JS</h4>
-          <pre>{this.renderContentAsRawJs()}</pre>
+          <Button variant="contained" 
+          style={{color:'#EDF5E1', fontFamily: "'Poppins', sans-serif", backgroundColor:'#05386B', marginTop:"5px"}}
+          onClick={this.saveToDb}>Save</Button>
+          {/* <pre id="rawJs">{this.renderContentAsRawJs()}</pre> */}
         </div>
       );
     }
