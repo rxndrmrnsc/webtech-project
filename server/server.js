@@ -170,7 +170,6 @@ app.post('/notes', async(req, res)=>{
   try{
       // console.log(req)
       const note = req.body
-      console.log(note)
       await Note.create(note)
       res.status(201).json({message: 'created'})
   } catch(err){
@@ -181,7 +180,9 @@ app.post('/notes', async(req, res)=>{
 
 app.put('/notes/:nid', async(req, res)=>{
   try{
-      const note = await Note.findByPk(req.params.nid)
+      console.log(req.body.content)
+      // const note = await Note.findByPk(req.params.nid)
+      const note = await Note.findOne({where: {title : req.params.nid}})
       if(note){
           await note.update(req.body, {
               fields: ['content']

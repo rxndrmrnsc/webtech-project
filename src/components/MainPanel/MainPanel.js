@@ -17,7 +17,7 @@ function MainPanel(props){
     return(
         <div className="panel-wrapper">
             <h1>{section}</h1>
-            <RTEditor />
+            <RTEditor key = {currentSection} section = {currentSection}/>
             {/* <MyEditor /> */}
             {/* <ThirdEditor /> */}
             {/* <FTEditor /> */}
