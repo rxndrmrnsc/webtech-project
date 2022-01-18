@@ -6,6 +6,7 @@
     justify-content: space-between;
     padding: 5px;
     background-color: #5CDB95;
+    flex:1;
 
     /* --s: 300px;
     --p: calc(var(--s) / 2);

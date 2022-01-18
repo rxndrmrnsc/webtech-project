@@ -1,4 +1,3 @@
 .panel-wrapper{
-    float:left;
-    
+    flex-grow:2;
 }

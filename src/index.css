@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #44b38e;
   height: 100vh;
- 
 }
 
 code {
@@ -15,10 +14,10 @@ code {
     monospace;
 }
 
-.sidebar {
+/* .sidebar {
   max-width: 250px;
   float:left;
-}
+} */
 
 h1{
   color: #EDF5E1;
@@ -41,3 +40,25 @@ h1{
   outline: none;
 }
 
+#root{
+  display: flex;
+  height: 100%;
+}
+
+#root > .loginreg-container{
+  justify-content: center;
+}
+
+.loginreg-container{
+  display: flex;
+  flex-direction: column;
+  -ms-flex-align: center;
+}
+
+.login-wrapper{
+  flex:1;
+}
+
+.register-wrapper{
+  flex:1;
+}

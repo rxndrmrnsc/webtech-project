@@ -16,7 +16,8 @@ function SidebarItem({ title, items, depthStep = 10, depth = 0, ...rest }) {
 
   return (
     <>
-      <ListItem button dense {...rest} >
+      <ListItem 
+      button dense {...rest} >
         <ListItemText style={{ paddingLeft: depth * depthStep, color:'#EDF5E1'}}>
           <span>{title}</span>
         </ListItemText>
