@@ -34,7 +34,7 @@ class NoteStore{
             // this.emitter.emit('GET_NOTES_SUCCESS')
             this.getNotes();
             
-            this.specificNote = this.data.find(element => element.title = name);
+            this.specificNote = this.data.find(element => element.title === name);
             console.log(name + " " + this.specificNote)
             // return this.specificNote;
         } catch (err) {

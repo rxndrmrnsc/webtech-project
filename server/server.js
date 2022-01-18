@@ -180,7 +180,6 @@ app.post('/notes', async(req, res)=>{
 
 app.put('/notes/:nid', async(req, res)=>{
   try{
-      console.log(req.body.content)
       // const note = await Note.findByPk(req.params.nid)
       const note = await Note.findOne({where: {title : req.params.nid}})
       if(note){
