@@ -2,7 +2,8 @@ import React from 'react';
 import './RTEditor.css'
 import noteStore from '../../NoteStore'
 import {Editor, EditorState, getDefaultKeyBinding, RichUtils, convertToRaw, convertFromRaw,} from 'draft-js'
-import '../../../node_modules/draft-js/dist/Draft.css'
+import '../../../node_modules/draft-js/dist/Draft.css';
+import Button from '@mui/material/Button'
 
 class RTEditor extends React.Component {
     constructor(props) {
@@ -153,9 +154,9 @@ class RTEditor extends React.Component {
               spellCheck={true}
             />
           </div>
-          <button onClick={this.saveToDb}>+</button>
+          <Button onClick={this.saveToDb}>+</Button>
           <h4>Editor content as raw JS</h4>
-          <pre>{this.renderContentAsRawJs()}</pre>
+          <pre id="rawJs">{this.renderContentAsRawJs()}</pre>
         </div>
       );
     }

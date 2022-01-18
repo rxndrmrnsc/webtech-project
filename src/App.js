@@ -121,7 +121,7 @@ function App() {
     //     </Switch>
     //   </BrowserRouter>
     // </div>
-    <div className='container'>
+    <div className='sidebar-mainpanel-wrapper'>
       <Sidebar items={sections} onAdd={addSection} onSectionClick={sectionChange} onSort={sortSection}/>
       <MainPanel currentSection={currentSection} />
     </div>

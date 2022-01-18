@@ -14,10 +14,55 @@ code {
     monospace;
 }
 
+#root{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+/* log-in/register wrapper */
+/* log-in div */
+/* register div */
+
+/* sidebar/main-panel wrapper */
+.sidebar-mainpanel-wrapper{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width:100%;
+  justify-content: space-between;
+  align-items: stretch;
+  overflow:hidden
+}
+/* sidebar */
+.sidebar{
+  background-color: #3a9979;
+  box-shadow: 3px 2px #05386B;
+  overflow-x:hidden;
+  overflow-y:scroll;
+  min-height: 0;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  font-family: 'Poppins', sans-serif;
+
+  display: grid;
+}
+
+/* main-panel */
+.panel-wrapper{
+  overflow-x:hidden;
+  overflow-y:scroll;
+  min-height: 0;
+  flex:1 0 30%;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  /* flex-basis: 50% */
+}
+
 /* .sidebar {
   max-width: 250px;
   float:left;
-} */
+} 
 
 h1{
   color: #EDF5E1;
@@ -61,4 +106,9 @@ h1{
 
 .register-wrapper{
   flex:1;
+} */
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; 
 }
