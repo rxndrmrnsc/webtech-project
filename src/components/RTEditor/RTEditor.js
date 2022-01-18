@@ -153,14 +153,15 @@ class RTEditor extends React.Component {
               handleKeyCommand={this.handleKeyCommand}
               keyBindingFn={this.mapKeyToEditorCommand}
               onChange={this.onChange}
-              placeholder="Tell a story..."
+              placeholder="Take a note..."
               ref="editor"
               spellCheck={true}
             />
           </div>
-          <Button onClick={this.saveToDb}>+</Button>
-          <h4>Editor content as raw JS</h4>
-          <pre id="rawJs">{this.renderContentAsRawJs()}</pre>
+          <Button variant="contained" 
+          style={{color:'#EDF5E1', fontFamily: "'Poppins', sans-serif", backgroundColor:'#05386B', marginTop:"5px"}}
+          onClick={this.saveToDb}>Save</Button>
+          {/* <pre id="rawJs">{this.renderContentAsRawJs()}</pre> */}
         </div>
       );
     }

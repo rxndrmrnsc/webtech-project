@@ -72,7 +72,7 @@ function Sidebar(props) {
           className="inputTitle" 
           variant='outlined'
           type='text'
-          style={{margin:'5px', borderRadius:'5px', backgroundColor:'white'}}
+          style={{margin:'5px', borderRadius:'5px', backgroundColor:'#ffffff34', color:'white'}}
           inputProps={{ maxLength: '23' }}
           value={newtitle} 
           onChange={(evt) => setNewTitle(evt.target.value)}>
@@ -85,7 +85,7 @@ function Sidebar(props) {
           style={{color:'#EDF5E1', fontFamily: "'Poppins', sans-serif", backgroundColor:'#05386B', margin:'5px'}}
           sx={{margin:'5px', outline: 'none'}}
           onClick={add}>
-          Add note
+          Add new note
         </Button>
       
         <div className="dropdown">
@@ -97,7 +97,7 @@ function Sidebar(props) {
             data-toggle="dropdown" 
             aria-haspopup="true" 
             aria-expanded="false"
-            style={{color:'#EDF5E1', fontFamily: "'Poppins', sans-serif", backgroundColor:'#fa7c97', margin:'5px'}}>
+            style={{color:'#EDF5E1', fontFamily: "'Poppins', sans-serif", backgroundColor:'#1ba098', margin:'5px'}}>
             Sort by...
           </Button>
           <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -108,7 +108,7 @@ function Sidebar(props) {
       </div>
 
       <List
-        style={{backgroundColor:'#3a9979'}}
+        style={{backgroundColor:'#061a29'}}
         disablePadding dense>
           {items.map((sidebarItem, index) => (
             <SidebarItem

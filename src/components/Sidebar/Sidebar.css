@@ -1,5 +1,5 @@
 .dropdown-item:hover{
-    background-color: #fa7c97;
+    background-color: #1ba098;
     color:white;
 }
 
@@ -10,3 +10,16 @@
 #title{
     font-family:'Poppins', sans-serif;
 }
+.sidebar{
+    background-color: #061a29;
+    border-image: linear-gradient(45deg, #1ba098, #05386B) 1;
+    border-width: 0 3px 0 0;
+    border-style: solid;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    min-height: 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    font-family: 'Poppins', sans-serif;
+    display:block;
+  }

@@ -101,6 +101,9 @@ function App() {
   if(!token) {
     return (
     <div id='loginreg-container'>
+      <div id='appTitle'>
+        <h1>Student Notes</h1>
+      </div>
       <Login setToken={setToken} />
       <Register setToken={setToken} />
     </div>

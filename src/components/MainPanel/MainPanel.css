@@ -2,11 +2,18 @@
     flex-grow:2;
 } */
 
-.sectionTitle>h1{
+.sectionTitle > h1{
     font-family: 'Poppins', sans-serif;
-    color:#faebd7;
+    color:#ffffff;
+    text-shadow: 2px 2px #1ba098;
+    margin: 30px;
 }
 
-#rawJs{
-    visibility: hidden;
-}
+.panel-wrapper{
+    overflow-x:hidden;
+    overflow-y:scroll;
+    min-height: 0;
+    flex:1 0 30%;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }

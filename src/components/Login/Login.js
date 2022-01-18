@@ -50,18 +50,18 @@ export default function Login({ setToken }) {
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         
-          <TextField id="outlined-basic"
+          <TextField id="filled-basic"
           className="textField"
           label="Username" 
-          variant="outlined"
+          variant="filled"
           sx={{margin:'5px', borderRadius:'5px', backgroundColor:'#EDF5E1'}} 
           onChange={e => setUserName(e.target.value)}
           />
         
-          <TextField id="outlined-password-input"
+          <TextField id="filled-password-input"
           className="textField" 
           label="Password"
-          variant="outlined"
+          variant="filled"
           type="password"
           autoComplete="current-password"
           sx={{margin:'5px', borderRadius:'5px', backgroundColor:'#EDF5E1'}}
