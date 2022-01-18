@@ -11,6 +11,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import MainPanel from './components/MainPanel/MainPanel';
 import sectionStore from './SectionStore'
 import noteStore from './NoteStore'
+import Menu from './components/Menu/Menu'
 
 function App() {
   const [currentSection, setCurrentSection] = useState('no section selected')
@@ -124,6 +125,7 @@ function App() {
     <div className='sidebar-mainpanel-wrapper'>
       <Sidebar items={sections} onAdd={addSection} onSectionClick={sectionChange} onSort={sortSection}/>
       <MainPanel currentSection={currentSection} />
+      <Menu />
     </div>
   );
 }
