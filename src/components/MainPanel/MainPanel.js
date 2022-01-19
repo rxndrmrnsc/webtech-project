@@ -23,7 +23,7 @@ function MainPanel(props){
             {/* <MyEditor /> */}
             {/* <ThirdEditor /> */}
             {/* <FTEditor /> */}
-      {/* <div className="dropleft" style={{position:'absolute', 
+      <div className="dropleft" style={{position:'absolute', 
                   top:'0', 
                   right:'0'}}>
         <Button
@@ -36,16 +36,16 @@ function MainPanel(props){
           aria-expanded="false"
           style={{color:'#EDF5E1', 
                   fontFamily: "'Poppins', sans-serif", 
-                  backgroundColor:'#fa7c97', 
-                  margin:'5px'}}
+                  backgroundColor:'#1ba098', 
+                  margin:'5px'
+                }}
         >
           Options
         </Button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button className="dropdown-item" type="button">Delete note</button>
-          <button className="dropdown-item" type="button">Send via E-mail</button>
+          <button className="dropdown-item" type="button">Share</button>
         </div>
-      </div> */}
+      </div>
       </div>
     )
 }
